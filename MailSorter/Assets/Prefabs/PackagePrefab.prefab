@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5527360832863044529, guid: 500323bccd493e245b4849779f9e4d64, type: 3}
       propertyPath: m_Name
-      value: BoxPrefab Variant
+      value: PackagePrefab
       objectReference: {fileID: 0}
     - target: {fileID: 5527360832863044529, guid: 500323bccd493e245b4849779f9e4d64, type: 3}
       propertyPath: m_IsActive
@@ -85,5 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bfbd730ab3dd34982d3acd36d9b7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Package
-  destinationCity: Moscow
+  interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  destinationCity: Moscow

@@ -1,59 +1,46 @@
 using UnityEngine;
 
-public class Package : MonoBehaviour
+public class Package : Interactable
 {
+    [Header("Данные посылки")]
     [SerializeField] private string destinationCity;
-    [SerializeField] private float interactionDistance;
 
-    private Backpack playerBackpack;
-    private Transform playerTransform;
+    public string DestinationCity => destinationCity;
 
-    void Start()
+    private bool isHeld = false;
+    private bool isPlaced = false;
+
+    public bool IsHeld => isHeld;
+    public bool IsPlaced => isPlaced;
+
+    public override string GetInteractionPrompt()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player == null)
-        {
-            return;
-        }
-
-        playerBackpack = player.GetComponent<Backpack>();
-        playerTransform = player.transform;
+        return $"[E] Взять посылку ({destinationCity})";
     }
 
-    void Update()
+    public override bool CanInteract(PlayerInteraction player)
     {
-        if (playerTransform == null)
-        {
-            return;
-        }
-
-        float distance = Vector3.Distance(transform.position, playerTransform.position);
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (distance <= interactionDistance)
-            {
-                Interact();
-            }
-        }
+        return base.CanInteract(player) && !isHeld && !player.IsHoldingPackage;
     }
 
-    public Package getPackage()
+    public override void Interact(PlayerInteraction player)
     {
-        return this;
+        player.PickupPackage(this);
+        SpawnManager.PackageRemovedEvent?.Invoke(-1);
     }
 
-    public void setDestination(string city)
+    public void SetHeld(bool held)
+    {
+        isHeld = held;
+    }
+
+    public void SetPlaced(bool placed)
+    {
+        isPlaced = placed;
+    }
+
+    public void SetDestination(string city)
     {
         destinationCity = city;
-    }
-
-    public void Interact()
-    {
-        Backpack.PackageInteractEvent.Invoke(this);
-        SpawnManager.PackageRemovedEvent.Invoke(-1);
-
-        Destroy(gameObject);
     }
 }

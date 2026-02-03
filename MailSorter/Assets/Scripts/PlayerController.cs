@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private Transform bodyTransform;
+    [SerializeField] private Transform holdPointTransform;
     [SerializeField] private Rigidbody rigidBody;
 
     private InputAction moveAction;
@@ -94,5 +95,6 @@ public class PlayerController : MonoBehaviour
 
         cameraTransform.rotation = Quaternion.Euler(rotationX, rotationY, 0f);
         bodyTransform.rotation = Quaternion.Euler(0f, rotationY, 0f);
+        holdPointTransform.rotation = Quaternion.Euler(0f, rotationY, 0f);
     }
 }
