@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class EconomyManager : MonoBehaviour
@@ -19,6 +20,8 @@ public class EconomyManager : MonoBehaviour
     private void Add(int delta)
     {
         money += delta;
-        Debug.Log(money);
+        UIManager.MoneyUpdatedEvent?.Invoke();
     }
+
+    public int Get() => money;
 }

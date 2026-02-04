@@ -16,8 +16,6 @@ public class ConveyorBelt : Interactable
 
     [SerializeField] private EconomyManager economyManager;
 
-    public static event Action<Package, string> PackageSentEvent;
-
     void Start()
     {
         text.SetText(destinationCity);

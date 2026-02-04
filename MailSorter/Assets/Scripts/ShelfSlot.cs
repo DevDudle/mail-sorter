@@ -86,10 +86,4 @@ public class ShelfSlot : Interactable
 
         return package;
     }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = IsOccupied ? Color.red : Color.green;
-        Gizmos.DrawWireCube(transform.position, new Vector3(0.3f, 0.3f, 0.3f));
-    }
 }

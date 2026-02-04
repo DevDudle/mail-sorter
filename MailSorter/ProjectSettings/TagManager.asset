@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Spawner
+  - InteractText
+  - MoneyBalanceText
+  - EconomyManager
+  - LoadingPanel
+  - LoadProgressText
   layers:
   - Default
   - TransparentFX

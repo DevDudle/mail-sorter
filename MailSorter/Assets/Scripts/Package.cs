@@ -10,6 +10,8 @@ public class Package : Interactable
     private bool isHeld = false;
     private bool isPlaced = false;
 
+    private bool isHeldBefore = false;
+
     public bool IsHeld => isHeld;
     public bool IsPlaced => isPlaced;
 
@@ -26,7 +28,11 @@ public class Package : Interactable
     public override void Interact(PlayerInteraction player)
     {
         player.PickupPackage(this);
-        SpawnManager.PackageRemovedEvent?.Invoke(-1);
+        if (!isHeldBefore)
+        {
+            isHeldBefore = true;
+            SpawnManager.PackageRemovedEvent?.Invoke(-1);
+        }
     }
 
     public void SetHeld(bool held)

@@ -21,10 +21,4 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     }
 
     public abstract void Interact(PlayerInteraction player);
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, interactionDistance);
-    }
 }

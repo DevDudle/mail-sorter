@@ -19,6 +19,7 @@ public class PlayerInteraction : MonoBehaviour
     public static event Action<Package> OnPackageDropped;
 
     private Interactable currentInteractable;
+    private Interactable previousInteractable;
 
     void Start()
     {
@@ -80,6 +81,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (playerCamera == null) return;
 
+        previousInteractable = currentInteractable;
+        currentInteractable = null;
+
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
         Debug.DrawRay(ray.origin, ray.direction * pickupRange, Color.green, 0.1f);
@@ -97,21 +101,26 @@ public class PlayerInteraction : MonoBehaviour
             Interactable interactable = hit.collider.GetComponent<Interactable>();
 
             if (interactable == null)
-            {
                 interactable = hit.collider.GetComponentInParent<Interactable>();
-            }
 
-            if (interactable != null)
+            if (interactable != null && interactable.CanInteract(this))
             {
-                if (interactable.CanInteract(this))
-                {
-                    currentInteractable = interactable;
-                    return;
-                }
+                currentInteractable = interactable;
             }
         }
 
-        currentInteractable = null;
+        UpdateInteractionUI();
+    }
+
+    private void UpdateInteractionUI()
+    {
+        if (currentInteractable == previousInteractable) return;
+        if (currentInteractable == null) {
+            UIManager.InteractEvent?.Invoke(null);
+            return;
+        }
+
+        UIManager.InteractEvent?.Invoke(currentInteractable.GetInteractionPrompt());
     }
 
     void HandleInput()
@@ -127,10 +136,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void PickupPackage(Package package)
     {
-        if (IsHoldingPackage)
-        {
-            return;
-        }
+        if (IsHoldingPackage) return;
 
         heldPackage = package;
 
@@ -144,7 +150,6 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         package.SetHeld(true);
-
         OnPackagePickedUp?.Invoke(package);
     }
 
@@ -166,7 +171,6 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         OnPackageDropped?.Invoke(package);
-
         return package;
     }
 }
