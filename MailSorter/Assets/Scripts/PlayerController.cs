@@ -41,16 +41,56 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void OnEnable()
+    void DisablePlayerActions()
+    {
+        moveAction.Disable();
+        lookAction.Disable();
+    }
+
+    void EnablePlayerActions()
     {
         moveAction.Enable();
         lookAction.Enable();
     }
 
+    void ShowCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    void HideCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    void Pause()
+    {
+        DisablePlayerActions();
+        ShowCursor();
+    }
+
+    void Unpause()
+    {
+        EnablePlayerActions();
+        HideCursor();
+    }
+
+    void OnEnable()
+    {
+        EnablePlayerActions();
+
+        GameManager.PauseEvent += (obj) => { Pause(); };
+        GameManager.UnpauseEvent += (obj) => { Unpause(); };
+    }
+
     void OnDisable()
     {
-        moveAction.Disable();
-        lookAction.Disable();
+        DisablePlayerActions();
+
+        GameManager.PauseEvent -= (obj) => { DisablePlayerActions(); };
+        GameManager.UnpauseEvent -= (obj) => { EnablePlayerActions(); };
     }
 
     void Update()

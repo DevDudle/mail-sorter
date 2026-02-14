@@ -71,7 +71,5 @@ public class SpawnManager : MonoBehaviour
 
         spawnTable.SetPackage(package);
         UpdateAmount(1);
-
-        Debug.Log($"Появилась посылка для: {randomCity}");
     }
 }

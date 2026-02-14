@@ -43,11 +43,7 @@ public class ShelfSlot : Interactable
 
     public void PlacePackage(Package package)
     {
-        if (package == null)
-        {
-            Debug.LogError("PlacePackage: package is null!");
-            return;
-        }
+        if (package == null) return;
 
         currentPackage = package;
 
@@ -69,8 +65,6 @@ public class ShelfSlot : Interactable
         {
             col.enabled = true;
         }
-
-        Debug.Log($"Коробка размещена в слоте {gameObject.name}");
     }
 
     public Package RemovePackage()
@@ -81,8 +75,6 @@ public class ShelfSlot : Interactable
         currentPackage = null;
 
         package.transform.SetParent(null);
-
-        Debug.Log($"Коробка забрана из слота {gameObject.name}");
 
         return package;
     }

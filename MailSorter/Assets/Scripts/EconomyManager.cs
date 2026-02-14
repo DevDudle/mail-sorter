@@ -1,11 +1,15 @@
 using System;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class EconomyManager : MonoBehaviour
 {
     public Action<int> AddMoneyEvent;
     private int money = 0;
+
+    void Awake()
+    {
+        money = SaveManager.GetSave("Money", 0);
+    }
 
     void OnEnable()
     {

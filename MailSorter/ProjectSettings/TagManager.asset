@@ -10,6 +10,10 @@ TagManager:
   - EconomyManager
   - LoadingPanel
   - LoadProgressText
+  - PausePanel
+  - SaveManager
+  - UIPanel
+  - VolumeManager
   layers:
   - Default
   - TransparentFX

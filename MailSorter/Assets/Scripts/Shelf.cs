@@ -12,7 +12,6 @@ public class Shelf : MonoBehaviour
         {
             slots = GetComponentsInChildren<ShelfSlot>();
         }
-        Debug.Log($"Стеллаж {name}: найдено {slots.Length} слотов");
     }
 
     public bool HasFreeSlot()

@@ -1,16 +1,35 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private GameObject PausePanel;
+
+    public static Action<GameObject> PauseEvent;
+    public static Action<GameObject> UnpauseEvent;
+
     void Start()
     {
-        
+        Time.timeScale = 1f;    
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            if (Time.timeScale == 1f)
+            {
+                Pause();
+            }
+
+            else
+            {
+                Unpause();
+            }
+        }
     }
+
+    public void Pause() { Time.timeScale = 0f; PauseEvent?.Invoke(PausePanel); }
+    public void Unpause() { Time.timeScale = 1f; UnpauseEvent?.Invoke(PausePanel); }
 }
