@@ -12,7 +12,6 @@ public class EconomyManager : MonoBehaviour
     void Awake()
     {
         UpdateRatio(SaveManager.GetSave("Difficulty", "Normal"));
-        SaveManager.SetSave("Money", 0);
         money = SaveManager.GetSave("Money", 0);
     }
 
