@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 5f;
+    private float moveSpeed = 0f;
+    private float maxMoveSpeed = 15f;
 
     [Header("Camera Settings")]
     [SerializeField] private Transform cameraTransform;
@@ -17,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform holdPointTransform;
     [SerializeField] private Rigidbody rigidBody;
 
+    public static Action<float> SpeedChangedEvent;
+
     private InputAction moveAction;
     private InputAction lookAction;
 
@@ -25,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        moveSpeed = Mathf.Min(20, SaveManager.GetSave("SpeedLevel", 1) * 5);
+
         rigidBody.freezeRotation = true;
 
         moveAction = new InputAction("Move", InputActionType.Value);
@@ -81,6 +87,8 @@ public class PlayerController : MonoBehaviour
     {
         EnablePlayerActions();
 
+        SpeedChangedEvent += HandleSpeedChanging;
+
         GameManager.PauseEvent += (obj) => { Pause(); };
         GameManager.UnpauseEvent += (obj) => { Unpause(); };
     }
@@ -89,8 +97,10 @@ public class PlayerController : MonoBehaviour
     {
         DisablePlayerActions();
 
-        GameManager.PauseEvent -= (obj) => { DisablePlayerActions(); };
-        GameManager.UnpauseEvent -= (obj) => { EnablePlayerActions(); };
+        SpeedChangedEvent -= HandleSpeedChanging;
+
+        GameManager.PauseEvent -= (obj) => { Pause(); };
+        GameManager.UnpauseEvent -= (obj) => { Unpause(); };
     }
 
     void Update()
@@ -101,6 +111,14 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         HandleMovement();
+    }
+
+    private void HandleSpeedChanging(float newSpeed)
+    {
+        moveSpeed = newSpeed;
+        if (moveSpeed > maxMoveSpeed) { 
+            moveSpeed = maxMoveSpeed; 
+        }
     }
 
     private void HandleMovement()

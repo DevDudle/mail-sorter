@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using TMPro;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -115,7 +116,8 @@ public class PlayerInteraction : MonoBehaviour
     private void UpdateInteractionUI()
     {
         if (currentInteractable == previousInteractable) return;
-        if (currentInteractable == null) {
+        if (currentInteractable == null)
+        {
             UIManager.InteractEvent?.Invoke(null);
             return;
         }

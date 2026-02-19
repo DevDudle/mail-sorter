@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [Header("Настройки спавна")]
-    [SerializeField] private float cooldown = 3f;
+    [SerializeField] private float cooldown = 30f;
     [SerializeField] private float minCooldown = 1f;
     [SerializeField] private float cooldownDecreaseRate = 0.1f;
     [SerializeField] private GameObject packagePrefab;
@@ -17,6 +17,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private SpawnTable spawnTable;
 
     public static Action<int> PackageRemovedEvent;
+    public static Action PackagesOverflowEvent;
 
     private int activePackages = 0;
 
@@ -46,6 +47,18 @@ public class SpawnManager : MonoBehaviour
         activePackages = Mathf.Max(0, activePackages);
     }
 
+    IEnumerator Timer(float cooldown)
+    {
+        float current = cooldown;
+        while (current > 0)
+        {
+            yield return new WaitForSeconds(0.1f);
+            current -= 0.1f;
+
+            UIManager.TimerUpdatedEvent?.Invoke(current);
+        }
+    }
+
     IEnumerator SpawnRoutine()
     {
         while (true)
@@ -55,9 +68,14 @@ public class SpawnManager : MonoBehaviour
             if (activePackages == 0)
             {
                 SpawnPackage();
-
                 cooldown = Mathf.Max(minCooldown, cooldown - cooldownDecreaseRate);
             }
+            else
+            {
+                PackagesOverflowEvent?.Invoke();
+            }
+
+            StartCoroutine(Timer(cooldown));
         }
     }
 

@@ -14,6 +14,9 @@ TagManager:
   - SaveManager
   - UIPanel
   - VolumeManager
+  - NotificationText
+  - InHandText
+  - CooldownText
   layers:
   - Default
   - TransparentFX

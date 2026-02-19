@@ -28,6 +28,7 @@ public class Package : Interactable
     public override void Interact(PlayerInteraction player)
     {
         player.PickupPackage(this);
+
         if (!isHeldBefore)
         {
             isHeldBefore = true;

@@ -14,8 +14,6 @@ public class ConveyorBelt : Interactable
     [SerializeField] private float finishRadius = 0.5f;
     [SerializeField] private Transform placePoint;
 
-    [SerializeField] private EconomyManager economyManager;
-
     void Start()
     {
         text.SetText(destinationCity);
@@ -114,11 +112,11 @@ public class ConveyorBelt : Interactable
         string packageDestination = package.DestinationCity;
         if (packageDestination != destinationCity)
         {
-            economyManager.AddMoneyEvent?.Invoke(-20);
+            EconomyManager.AddMoneyEvent?.Invoke(-20);
         } 
         else
         {
-            economyManager.AddMoneyEvent?.Invoke(30);
+            EconomyManager.AddMoneyEvent?.Invoke(30);
         }
     }
 }
