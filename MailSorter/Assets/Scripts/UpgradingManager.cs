@@ -26,8 +26,17 @@ public class UpgradingManager : MonoBehaviour
             PlayerController.SpeedChangedEvent?.Invoke(5 * speedLevel);
         }
 
-        speedCost = (int)(50 * speedLevel * 1.25f);
-        buySpeedText.SetText($"Купить ({speedCost} монет)");
+        if (speedLevel * 2.5f + 2.5f != 15f)
+        {
+            speedCost = (int)(50 * speedLevel * 1.25f);
+            buySpeedText.SetText($"Купить ({speedCost} монет)");
+        }
+        else
+        {
+            buySpeedButton.onClick.RemoveAllListeners();
+            buySpeedText.SetText("Максимальный уровень");
+        }
+
 
         isBoxCooldownBought = SaveManager.GetSave("BoxCooldownUpgrade", 0) == 1;
         if (isBoxCooldownBought)
@@ -42,10 +51,9 @@ public class UpgradingManager : MonoBehaviour
     public void SpeedUpgrade()
     {
         int currentSpeed = SaveManager.GetSave("Speed", 5);
-        PlayerController.SpeedChangedEvent?.Invoke(Mathf.Max(5f, 2.5f * (speedLevel + 1)));
-        int newSpeed = SaveManager.GetSave("Speed", 5);
+        PlayerController.SpeedChangedEvent?.Invoke(2.5f + 2.5f * (speedLevel + 1));
 
-        if (currentSpeed == newSpeed)
+        if (speedLevel > 1 && currentSpeed == 2.5f + 2.5f * (speedLevel + 1))
         {
             buySpeedText.SetText("Максимальный уровень");
             buySpeedButton.onClick.RemoveAllListeners();
@@ -54,22 +62,36 @@ public class UpgradingManager : MonoBehaviour
             return;
         }
 
+        if (SaveManager.GetSave("Money", 0) < speedCost)
+        {
+            UIManager.NotificationEvent?.Invoke("error", "Недостаточно средств!");
+            return;
+        }
+
         EconomyManager.AddMoneyWithoutRatioEvent?.Invoke(-speedCost);
 
         speedLevel += 1;
         SaveManager.SetSave("SpeedLevel", speedLevel);
-
-        speedCost = (int)(20 * speedLevel * 1.25f);
+        
+        speedCost = (int)(50 * speedLevel * 1.25f);
 
         buySpeedText.SetText($"Купить ({speedCost} монет)");
     }
 
     public void BuyBoxCooldownShower()
-    {
+    { 
+        if (SaveManager.GetSave("Money", 0) < 500)
+        {
+            UIManager.NotificationEvent?.Invoke("error", "Недостаточно средств!");
+            return;
+        }
+
+        EconomyManager.AddMoneyWithoutRatioEvent?.Invoke(-500);
+
         isBoxCooldownBought = true;
         SaveManager.SetSave("BoxCooldownUpgrade", 1);
 
-        buySpeedText.SetText("Максимальный уровень");
-        buySpeedButton.onClick.RemoveAllListeners();
+        boxCooldownText.SetText("Максимальный уровень");
+        boxCooldownButton.onClick.RemoveAllListeners();
     }
 }
