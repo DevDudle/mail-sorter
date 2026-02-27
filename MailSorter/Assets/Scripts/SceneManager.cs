@@ -9,6 +9,17 @@ public class SceneManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI loadingProgressText;
 
     public static Action SceneChangedToMainMenu;
+    public static Action<int> ChangeSceneEvent;
+
+    void OnEnable()
+    {
+        ChangeSceneEvent += ChangeScene;    
+    }
+
+    void OnDisable()
+    {
+        ChangeSceneEvent -= ChangeScene;
+    }
 
     public void ChangeScene(int sceneNumber)
     {

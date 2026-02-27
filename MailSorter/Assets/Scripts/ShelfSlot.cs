@@ -2,10 +2,30 @@ using UnityEngine;
 
 public class ShelfSlot : Interactable
 {
+    [Header("Настройки слота")]
+    [Tooltip("Уникальный ID слота. Генерируется автоматически, если пусто.")]
+    public string slotID;
+
     private Package currentPackage;
 
     public bool IsOccupied => currentPackage != null;
     public Package CurrentPackage => currentPackage;
+
+    private void Awake()
+    {
+        GenerateID();
+    }
+
+    [ContextMenu("Generate ID")]
+    private void GenerateID()
+    {
+        if (string.IsNullOrEmpty(slotID))
+        {
+            string parentName = transform.parent != null ? transform.parent.name : "NoParent";
+            string grandParentName = (transform.parent != null && transform.parent.parent != null) ? transform.parent.parent.name : "NoGrandParent";
+            slotID = $"{grandParentName}_{parentName}_{transform.name}";
+        }
+    }
 
     public override string GetInteractionPrompt()
     {
@@ -33,11 +53,17 @@ public class ShelfSlot : Interactable
         {
             Package package = player.ReleasePackage();
             PlacePackage(package);
+
+            if (ShelfSaveManager.Instance != null)
+                ShelfSaveManager.Instance.SaveShelves();
         }
         else if (!player.IsHoldingPackage && IsOccupied)
         {
             Package package = RemovePackage();
             player.PickupPackage(package);
+
+            if (ShelfSaveManager.Instance != null)
+                ShelfSaveManager.Instance.SaveShelves();
         }
     }
 
@@ -46,6 +72,7 @@ public class ShelfSlot : Interactable
         if (package == null) return;
 
         currentPackage = package;
+        package.SetPlaced(true);
 
         package.transform.SetParent(this.transform);
         package.transform.localPosition = Vector3.zero;
@@ -56,7 +83,6 @@ public class ShelfSlot : Interactable
         {
             rb.isKinematic = true;
             rb.detectCollisions = true;
-            rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
 
@@ -73,6 +99,7 @@ public class ShelfSlot : Interactable
 
         Package package = currentPackage;
         currentPackage = null;
+        package.SetPlaced(false);
 
         package.transform.SetParent(null);
 

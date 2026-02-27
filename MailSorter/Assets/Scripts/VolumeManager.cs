@@ -12,7 +12,7 @@ public class VolumeManager : MonoBehaviour
 
     void Start()
     {
-        percentageVolume = SaveManager.GetSave("PercentageVolume", 0);
+        percentageVolume = SaveManager.GetSave("PercentageVolume", 50);
         SetVolume(percentageVolume);
     }
 

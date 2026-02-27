@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        HandleUpdateBalance();    
+        HandleUpdateBalance();
     }
 
     void Awake()
@@ -174,7 +174,7 @@ public class UIManager : MonoBehaviour
         } 
         else
         {
-            StartCoroutine(ShowNotification(text, Color.red));
+            StartCoroutine(ShowNotification(text, Color.aliceBlue));
         }
     }
 
@@ -189,5 +189,10 @@ public class UIManager : MonoBehaviour
         }
 
         inHandText.SetText($"В руках: Посылка в {city}");
+    }
+
+    public void ResetButtonHandle(TextMeshProUGUI tmp)
+    {
+        SaveManager.ResetEvent?.Invoke(tmp);
     }
 }

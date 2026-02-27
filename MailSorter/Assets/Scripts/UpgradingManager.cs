@@ -37,30 +37,26 @@ public class UpgradingManager : MonoBehaviour
             buySpeedText.SetText("Максимальный уровень");
         }
 
-
         isBoxCooldownBought = SaveManager.GetSave("BoxCooldownUpgrade", 0) == 1;
+
         if (isBoxCooldownBought)
         {
             boxCooldownButton.onClick.RemoveAllListeners();
-            boxCooldownText.SetText($"Улучшение куплено");
+            boxCooldownText.SetText("Улучшение куплено");
         }
-
-        boxCooldownText.SetText($"Купить (500 монет)");
+        else
+        {
+            boxCooldownText.SetText("Купить (500 монет)");
+            boxCooldownButton.onClick.RemoveAllListeners();
+            boxCooldownButton.onClick.AddListener(BuyBoxCooldownShower);
+        }
     }
 
     public void SpeedUpgrade()
     {
         int currentSpeed = SaveManager.GetSave("Speed", 5);
+
         PlayerController.SpeedChangedEvent?.Invoke(2.5f + 2.5f * (speedLevel + 1));
-
-        if (speedLevel > 1 && currentSpeed == 2.5f + 2.5f * (speedLevel + 1))
-        {
-            buySpeedText.SetText("Максимальный уровень");
-            buySpeedButton.onClick.RemoveAllListeners();
-
-            UIManager.NotificationEvent?.Invoke("error", "Достигнут максимальный уровень скорости!");
-            return;
-        }
 
         if (SaveManager.GetSave("Money", 0) < speedCost)
         {
@@ -72,14 +68,13 @@ public class UpgradingManager : MonoBehaviour
 
         speedLevel += 1;
         SaveManager.SetSave("SpeedLevel", speedLevel);
-        
-        speedCost = (int)(50 * speedLevel * 1.25f);
 
+        speedCost = (int)(50 * speedLevel * 1.25f);
         buySpeedText.SetText($"Купить ({speedCost} монет)");
     }
 
     public void BuyBoxCooldownShower()
-    { 
+    {
         if (SaveManager.GetSave("Money", 0) < 500)
         {
             UIManager.NotificationEvent?.Invoke("error", "Недостаточно средств!");
@@ -91,7 +86,8 @@ public class UpgradingManager : MonoBehaviour
         isBoxCooldownBought = true;
         SaveManager.SetSave("BoxCooldownUpgrade", 1);
 
-        boxCooldownText.SetText("Максимальный уровень");
+        boxCooldownText.SetText("Улучшение куплено");
         boxCooldownButton.onClick.RemoveAllListeners();
+        boxCooldownButton.interactable = false;
     }
 }

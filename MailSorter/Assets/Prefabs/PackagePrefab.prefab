@@ -60,13 +60,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2897926120533752213, guid: 500323bccd493e245b4849779f9e4d64, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5527360832863044529, guid: 500323bccd493e245b4849779f9e4d64, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3578455568732523081}
+    - targetCorrespondingSourceObject: {fileID: 5527360832863044529, guid: 500323bccd493e245b4849779f9e4d64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 827659691026472854}
   m_SourcePrefab: {fileID: 100100000, guid: 500323bccd493e245b4849779f9e4d64, type: 3}
 --- !u!1 &5460685761150093789 stripped
 GameObject:
@@ -87,4 +91,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Package
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  PackageTypeID: StandardBox
   destinationCity: Moscow
+--- !u!65 &827659691026472854
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5460685761150093789}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.55028903, y: 0.55028903, z: 0.5502889}
+  m_Center: {x: 0, y: 0, z: 0}

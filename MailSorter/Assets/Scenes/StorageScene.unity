@@ -690,6 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &86599777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,8 +1632,8 @@ Transform:
   m_GameObject: {fileID: 132767457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.95, y: 1.5, z: 0}
-  m_LocalScale: {x: 0.1, y: 3, z: 10}
+  m_LocalPosition: {x: -6.3532, y: 1.5, z: 0}
+  m_LocalScale: {x: 2.90646, y: 3, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1516556367}
@@ -2141,6 +2142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &260605587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,6 +2910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &366116374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,6 +3112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &388688772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,6 +3268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &413416366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3386,6 +3391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414631647}
   - component: {fileID: 414631646}
+  - component: {fileID: 414631648}
   m_Layer: 0
   m_Name: SaveManager
   m_TagString: SaveManager
@@ -3420,6 +3426,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &414631648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414631645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3217683018906e42a153eaced7d75d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShelfSaveManager
+  packagePrefabs: []
+  spawnTable: {fileID: 0}
 --- !u!1001 &431961231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3513,6 +3533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &433052883
 GameObject:
   m_ObjectHideFlags: 0
@@ -5703,6 +5724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &721567382 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5527360832863044529, guid: 500323bccd493e245b4849779f9e4d64, type: 3}
@@ -5975,6 +5997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1001 &751577249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6189,8 +6212,8 @@ Transform:
   m_GameObject: {fileID: 797332935}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.5, z: 4.95}
-  m_LocalScale: {x: 0.1, y: 3, z: 10}
+  m_LocalPosition: {x: 0, y: 1.5, z: 6.3558}
+  m_LocalScale: {x: 2.9116602, y: 3, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1516556367}
@@ -7109,6 +7132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1001 &929963874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7202,6 +7226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &947464989 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5527360832863044529, guid: 500323bccd493e245b4849779f9e4d64, type: 3}
@@ -7304,6 +7329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &975472951
 GameObject:
   m_ObjectHideFlags: 0
@@ -7634,6 +7660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1001 &1032561711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8590,6 +8617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &1116416070
 GameObject:
   m_ObjectHideFlags: 0
@@ -9000,6 +9028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &1175834579
 GameObject:
   m_ObjectHideFlags: 0
@@ -9230,6 +9259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1001 &1190713759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9327,6 +9357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1001 &1238323363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9419,6 +9450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 5
+  slotID: 
 --- !u!1001 &1253430092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10147,6 +10179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1001 &1332479544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10240,6 +10273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1001 &1365887291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10328,6 +10362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 5
+  slotID: 
 --- !u!1 &1401107406
 GameObject:
   m_ObjectHideFlags: 0
@@ -11002,6 +11037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 5
+  slotID: 
 --- !u!1 &1516007015
 GameObject:
   m_ObjectHideFlags: 0
@@ -11931,6 +11967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &1589866264
 GameObject:
   m_ObjectHideFlags: 0
@@ -12115,6 +12152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 5
+  slotID: 
 --- !u!1 &1662206571
 GameObject:
   m_ObjectHideFlags: 0
@@ -12542,9 +12580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad410a7c64fd141488047fd08a022a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
-  cooldown: 3
+  cooldown: 20
   minCooldown: 3
-  cooldownDecreaseRate: 0.1
+  cooldownDecreaseRate: 0.25
   packagePrefab: {fileID: 5460685761150093789, guid: 9f7835b5690ac6d4cb7a0df3c4e32313, type: 3}
   cities:
   - "\u0411\u0440\u0435\u0441\u0442"
@@ -12650,6 +12688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1001 &1679950796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12743,6 +12782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &1682724014
 GameObject:
   m_ObjectHideFlags: 0
@@ -12883,8 +12923,8 @@ Transform:
   m_GameObject: {fileID: 1683682745}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.95, y: 1.5, z: 0}
-  m_LocalScale: {x: 0.1, y: 3, z: 10}
+  m_LocalPosition: {x: 6.0646, y: 1.5, z: 0}
+  m_LocalScale: {x: 2.32921, y: 3, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1516556367}
@@ -13230,7 +13270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8956aaabc5c0ae54ea3b8d3db2a685bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorInteraction
-  interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
+  interactionPrompt: "[E] \u0417\u0430\u0439\u0442\u0438 \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D"
   interactionDistance: 16.3
   sceneManager: {fileID: 2127477203}
   economyManager: {fileID: 1768391094}
@@ -13253,6 +13293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 5
+  slotID: 
 --- !u!1 &1729799881
 GameObject:
   m_ObjectHideFlags: 0
@@ -13384,6 +13425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 5
+  slotID: 
 --- !u!1 &1768391093
 GameObject:
   m_ObjectHideFlags: 0
@@ -13456,8 +13498,8 @@ Transform:
   m_GameObject: {fileID: 1778934291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.5, z: -4.95}
-  m_LocalScale: {x: 0.1, y: 3, z: 10}
+  m_LocalPosition: {x: 0, y: 1.5, z: -6.3074}
+  m_LocalScale: {x: -2.6147, y: 3, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1516556367}
@@ -13481,7 +13523,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.3, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1778934294
 MeshRenderer:
@@ -13782,6 +13824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &1826469607
 GameObject:
   m_ObjectHideFlags: 0
@@ -14046,6 +14089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &1853208885
 GameObject:
   m_ObjectHideFlags: 0
@@ -14392,6 +14436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &1877084953
 GameObject:
   m_ObjectHideFlags: 0
@@ -14774,6 +14819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 5
+  slotID: 
 --- !u!1001 &1936445208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14956,6 +15002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &1969519739
 GameObject:
   m_ObjectHideFlags: 0
@@ -15153,6 +15200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 5
+  slotID: 
 --- !u!1 &1989839242
 GameObject:
   m_ObjectHideFlags: 0
@@ -15568,6 +15616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &2047084275
 GameObject:
   m_ObjectHideFlags: 0
@@ -15935,6 +15984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 10
+  slotID: 
 --- !u!1 &2127477202
 GameObject:
   m_ObjectHideFlags: 0
@@ -16069,6 +16119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShelfSlot
   interactionPrompt: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 E"
   interactionDistance: 5
+  slotID: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class Package : Interactable
 {
-    [Header("Данные посылки")]
+    [Header("Идентификация")]
+    [Tooltip("ID типа коробки для сохранения. Должен совпадать в префабе.")]
+    public string PackageTypeID = "StandardBox";
+
+    [Header("Данные")]
     [SerializeField] private string destinationCity;
 
     public string DestinationCity => destinationCity;
 
     private bool isHeld = false;
     private bool isPlaced = false;
-
-    private bool isHeldBefore = false;
 
     public bool IsHeld => isHeld;
     public bool IsPlaced => isPlaced;
@@ -28,23 +30,10 @@ public class Package : Interactable
     public override void Interact(PlayerInteraction player)
     {
         player.PickupPackage(this);
-
-        if (!isHeldBefore)
-        {
-            isHeldBefore = true;
-            SpawnManager.PackageRemovedEvent?.Invoke(-1);
-        }
     }
 
-    public void SetHeld(bool held)
-    {
-        isHeld = held;
-    }
-
-    public void SetPlaced(bool placed)
-    {
-        isPlaced = placed;
-    }
+    public void SetHeld(bool held) => isHeld = held;
+    public void SetPlaced(bool placed) => isPlaced = placed;
 
     public void SetDestination(string city)
     {
