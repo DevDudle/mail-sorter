@@ -26,15 +26,9 @@ public class SpawnTable : Interactable
     {
         if (currentPackage == null) return;
 
-        // Игрок забирает посылку
         player.PickupPackage(currentPackage);
         currentPackage = null;
 
-        // --- УДАЛЕНА СТРОКА SpawnManager.PackageRemovedEvent ---
-        // Спавнеру больше не нужно знать о взятии. 
-        // Он сам увидит, что стол пуст, когда придет время спавна.
-
-        // Сохраняем игру (чтобы стол записался как пустой)
         ShelfSaveManager.Instance?.SaveShelves();
     }
 
@@ -44,24 +38,21 @@ public class SpawnTable : Interactable
         currentPackage = package;
         package.SetPlaced(true);
 
-        // Сброс родителя и масштаба
         package.transform.SetParent(null);
         package.transform.localScale = Vector3.one;
 
-        // Телепортация
         if (packageSpawnPoint != null)
         {
             package.transform.position = packageSpawnPoint.position;
             package.transform.rotation = packageSpawnPoint.rotation;
         }
 
-        // Физика
         Rigidbody rb = package.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = false;
             rb.useGravity = true;
-            rb.linearVelocity = Vector3.zero; // Unity 6 (или rb.velocity для старых)
+            rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
     }
